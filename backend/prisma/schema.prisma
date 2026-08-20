@@ -7,22 +7,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
-  id            String   @id @default(cuid())
-  email         String   @unique
+  id            String         @id @default(cuid())
+  email         String         @unique
   passwordHash  String?
-  googleId      String?  @unique
+  googleId      String?        @unique
   name          String?
-  username      String?  @unique
+  username      String?        @unique
   avatar        String?
-  role          String   @default("USER")
-  isVerified    Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  role          Role           @default(USER)
+  isVerified    Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
   favorites     Favorite[]
   watchHistory  WatchHistory[]
   comments      Comment[]
   likes         Like[]
+  refreshTokens RefreshToken[]
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
 }
 
 model Category {
@@ -34,29 +54,29 @@ model Category {
 }
 
 model Tag {
-  id        String   @id @default(cuid())
-  name      String   @unique
-  slug      String   @unique
-  createdAt DateTime @default(now())
+  id        String       @id @default(cuid())
+  name      String       @unique
+  slug      String       @unique
+  createdAt DateTime     @default(now())
   contents  ContentTag[]
 }
 
 model Content {
-  id            String        @id @default(cuid())
-  title         String
-  slug          String        @unique
-  description   String
-  thumbnail     String?
-  videoUrl      String
-  categoryId    String
-  category      Category      @relation(fields: [categoryId], references: [id])
-  tags          ContentTag[]
-  comments      Comment[]
-  likes         Like[]
-  favorites     Favorite[]
-  watchHistory  WatchHistory[]
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id           String         @id @default(cuid())
+  title        String
+  slug         String         @unique
+  description  String
+  thumbnail    String?
+  videoUrl     String
+  categoryId   String
+  category     Category       @relation(fields: [categoryId], references: [id])
+  tags         ContentTag[]
+  comments     Comment[]
+  likes        Like[]
+  favorites    Favorite[]
+  watchHistory WatchHistory[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
 }
 
 model ContentTag {

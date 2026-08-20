@@ -1,34 +1,16 @@
-version: '3.9'
-services:
-  db:
+﻿services:
+  postgres:
     image: postgres:16
+    container_name: luxeverse-postgres
+    restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: adult_platform
+      POSTGRES_DB: luxeverse
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/adult_platform
-      PORT: 4000
-    depends_on:
-      - db
-    ports:
-      - '4000:4000'
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - '5173:5173'
+      - luxeverse_postgres_data:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  luxeverse_postgres_data:

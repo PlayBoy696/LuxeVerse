@@ -4,7 +4,9 @@
 
 :root {
   color-scheme: dark;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -12,8 +14,22 @@ body {
   min-height: 100vh;
   background: linear-gradient(135deg, #02040a 0%, #0f172a 100%);
   color: #f8fafc;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(217, 70, 239, 0.35);
+  color: #fff;
 }
