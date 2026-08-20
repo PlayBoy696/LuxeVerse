@@ -1,7 +1,8 @@
 {
-  "name": "adult-platform-frontend",
+  "name": "luxeverse-frontend",
   "version": "1.0.0",
   "private": true,
+  "description": "LuxeVerse React frontend with SEO-ready content discovery and administration",
   "type": "module",
   "scripts": {
     "dev": "vite",

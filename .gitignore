@@ -9,9 +9,18 @@ dist/
 # Environment
 .env
 .env.*
+!.env.example
+!**/.env.example
 
 # Logs
 *.log
 
 # TypeScript
 *.tsbuildinfo
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
