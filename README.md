@@ -139,11 +139,13 @@ Use the example files as the starting point. Never commit `.env` files or real s
 - `JWT_REFRESH_EXPIRES_IN`
 - `FRONTEND_URL`
 - `TRUST_PROXY`
+- `COOKIE_SAME_SITE`
 - `CLOUDINARY_CLOUD_NAME`
 - `CLOUDINARY_API_KEY`
 - `CLOUDINARY_API_SECRET`
 
 `FRONTEND_URL` accepts a comma-separated list of allowed browser origins. `TRUST_PROXY` should remain `0` unless the deployment uses a configured reverse proxy.
+`COOKIE_SAME_SITE` defaults to `lax`; choose `none` only for an HTTPS cross-site deployment after reviewing CSRF protection.
 
 ### Frontend
 
@@ -160,9 +162,10 @@ Common commands:
 cd backend
 npm run prisma:generate
 npm run prisma:migrate
+npx prisma migrate deploy
 ```
 
-Use `npm run prisma:migrate` during local development to apply or create migrations. The backend build also checks the TypeScript source:
+Use `npm run prisma:migrate` during local development to create or apply migrations. Production must use `npx prisma migrate deploy` (or `npm run prisma:deploy`) and must never reset production data. The backend build also checks the TypeScript source:
 
 ```powershell
 npm run build
@@ -216,6 +219,11 @@ npm run build
 ```
 
 The frontend build also generates `public/sitemap.xml` from the public content endpoint. Configure `VITE_SITE_URL` for production canonical URLs and sitemap output.
+The production frontend artifact is `frontend/dist/`. Vite environment variables are baked into this artifact, so changing `VITE_API_URL` or `VITE_SITE_URL` requires a rebuild.
+
+## Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the provider-neutral production sequence, environment topology, Docker workflow, health checks, SEO requirements, and remaining deployment decisions.
 
 ## Current Limitations / Production Notes
 

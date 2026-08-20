@@ -46,6 +46,8 @@ const envSchema = z.object({
   FRONTEND_URL: allowedOriginsSchema,
 
   TRUST_PROXY: z.coerce.number().int().min(0).default(0),
+
+  COOKIE_SAME_SITE: z.enum(["lax", "strict", "none"]).default("lax"),
 }).superRefine((value, ctx) => {
   if (value.JWT_ACCESS_SECRET === value.JWT_REFRESH_SECRET) {
     ctx.addIssue({
@@ -60,6 +62,14 @@ const envSchema = z.object({
       code: z.ZodIssueCode.custom,
       path: ["FRONTEND_URL"],
       message: "Production frontend origins must not use localhost",
+    });
+  }
+
+  if (value.COOKIE_SAME_SITE === "none" && value.NODE_ENV !== "production") {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["COOKIE_SAME_SITE"],
+      message: "SameSite=None requires production HTTPS",
     });
   }
 });
