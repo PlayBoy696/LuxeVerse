@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import crypto, { randomUUID } from "node:crypto";
 import jwt from "jsonwebtoken";
 import type { Role } from "@prisma/client";
 
@@ -46,6 +46,7 @@ export const generateRefreshToken = async (
       sub: userId,
       role,
       type: "refresh",
+      jti: randomUUID(),
     },
     env.JWT_REFRESH_SECRET,
     {
