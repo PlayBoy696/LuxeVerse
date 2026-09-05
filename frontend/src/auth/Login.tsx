@@ -30,12 +30,12 @@ export default function LoginPage() {
     <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-8">
       <Seo
         title="Login | LuxeVerse"
-        description="Sign in to your LuxeVerse account to continue exploring premium content."
+        description="Sign in to your LuxeVerse account to continue exploring videos and films."
         canonicalPath="/login"
         robots="noindex,nofollow"
       />
       <div className="w-full max-w-md">
-      <div className="mb-8 text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-fuchsia-300">Welcome back</p><h1 className="mt-3 text-3xl font-semibold text-white">Sign in to LuxeVerse</h1><p className="mt-2 text-sm text-slate-400">Continue exploring your curated library.</p></div>
+      <div className="mb-8 text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-fuchsia-300">Welcome back</p><h1 className="mt-3 text-3xl font-semibold text-white">Sign in to LuxeVerse</h1><p className="mt-2 text-sm text-slate-400">Continue exploring your video library.</p></div>
       <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/20 sm:p-8">
         {error && <div role="alert" className="rounded-xl border border-red-400/20 bg-red-400/10 px-3 py-2 text-sm text-red-200">{error}</div>}
         <label className="block">

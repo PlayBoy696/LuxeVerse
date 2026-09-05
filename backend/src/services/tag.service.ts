@@ -69,5 +69,14 @@ export const updateTag = async (
 export const deleteTag = async (id: string) => {
   await getTagById(id);
 
+  const contentCount = await tagRepository.countTagContent(id);
+
+  if (contentCount > 0) {
+    throw new AppError(
+      "Cannot delete tag because it is still used by content. Remove it from the related content first.",
+      409
+    );
+  }
+
   return tagRepository.deleteTag(id);
 };

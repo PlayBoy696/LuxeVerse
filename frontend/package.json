@@ -2,7 +2,7 @@
   "name": "luxeverse-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "LuxeVerse React frontend with SEO-ready content discovery and administration",
+  "description": "LuxeVerse React frontend for discovering videos, films, and digital media",
   "type": "module",
   "scripts": {
     "dev": "vite",

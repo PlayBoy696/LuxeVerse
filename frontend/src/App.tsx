@@ -161,10 +161,10 @@ function HomePage() {
       <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur sm:p-10">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 px-3 py-1 text-sm text-fuchsia-300">
-            <Sparkles className="h-4 w-4" /> Premium discovery experience
+            <Sparkles className="h-4 w-4" /> General video platform
           </div>
-          <h1 className="text-4xl font-semibold leading-tight sm:text-6xl">Discover standout content with speed and elegance.</h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-400">A modern, responsive platform with curated categories, instant search, and a polished admin dashboard built for growth.</p>
+          <h1 className="text-4xl font-semibold leading-tight sm:text-6xl">Discover. Watch. Explore.</h1>
+          <p className="mt-6 max-w-2xl text-lg text-slate-400">Explore films, videos and digital content across a growing collection of categories.</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link to="/categories" className="rounded-full bg-fuchsia-600 px-6 py-3 font-medium text-white transition hover:bg-fuchsia-500">Explore categories</Link>
             <Link to="/search" className="rounded-full border border-white/10 bg-slate-900 px-6 py-3 font-medium text-slate-200">Search library</Link>
@@ -172,7 +172,7 @@ function HomePage() {
         </div>
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8">
           <div className="mb-6 flex items-center gap-3 text-fuchsia-300">
-            <ShieldCheck className="h-5 w-5" /> Verified access and smart moderation
+            <ShieldCheck className="h-5 w-5" /> Organized media discovery
           </div>
           <div className="space-y-4 text-sm text-slate-400">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">Fast search with category and tag relevance.</div>
@@ -183,19 +183,19 @@ function HomePage() {
       </section>
 
       <section className="mt-10 grid gap-4 md:grid-cols-3">
-        {['Trending', 'New uploads', 'Creators'].map((title) => (
+        {['Trending', 'New uploads', 'Featured categories'].map((title) => (
           <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
             <div className="mb-2 flex items-center gap-2 text-fuchsia-300">
               <Compass className="h-4 w-4" /> {title}
             </div>
-            <p className="text-sm text-slate-400">The experience balances discovery, engagement, and polished presentation across every screen size.</p>
+            <p className="text-sm text-slate-400">Find and manage films, educational videos, gaming content, technology, music and more.</p>
           </div>
         ))}
       </section>
 
       <section className="mt-12">
         <div className="flex items-end justify-between gap-4">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-300">Curated now</p><h2 className="mt-2 text-2xl font-semibold">Fresh picks</h2></div>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-300">Now showing</p><h2 className="mt-2 text-2xl font-semibold">Featured videos</h2></div>
           <Link to="/search" className="inline-flex items-center gap-1 text-sm text-fuchsia-300 transition hover:text-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400">Browse all <ArrowRight className="h-4 w-4" /></Link>
         </div>
 
@@ -204,7 +204,7 @@ function HomePage() {
         ) : error ? (
           <div className="mt-6"><StateMessage kind="error">{error}</StateMessage></div>
         ) : items.length === 0 ? (
-          <div className="mt-6"><StateMessage kind="empty">No content available right now. Check back soon for the next release.</StateMessage></div>
+          <div className="mt-6"><StateMessage kind="empty">No videos available right now. Check back soon for new additions.</StateMessage></div>
         ) : (
           <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => <ContentCard key={item.id} item={item} />)}
@@ -255,7 +255,7 @@ function CategoriesPage() {
     <AppShell>
       <Seo
         title="Categories | LuxeVerse"
-        description="Browse curated LuxeVerse categories to discover premium content faster."
+        description="Browse LuxeVerse categories to discover videos, films and digital content."
         canonicalPath="/categories"
       />
       <h1 className="sr-only">Categories</h1>
@@ -270,7 +270,7 @@ function CategoriesPage() {
           {categories.map((category) => (
             <div key={category.id} className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <div className="mb-4 flex items-center gap-2 text-fuchsia-300"><LayoutGrid className="h-4 w-4" />{category.name}</div>
-              <p className="text-sm text-slate-400">Curated collections designed for faster discovery and a premium browsing experience.</p>
+              <p className="text-sm text-slate-400">Explore videos and films organized for faster discovery across the platform.</p>
             </div>
           ))}
         </div>

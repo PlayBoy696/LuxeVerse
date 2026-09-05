@@ -26,6 +26,14 @@ export const findTagBySlug = (slug: string) => {
   });
 };
 
+export const countTagContent = (tagId: string) => {
+  return prisma.contentTag.count({
+    where: {
+      tagId,
+    },
+  });
+};
+
 export const createTag = (data: {
   name: string;
   slug: string;

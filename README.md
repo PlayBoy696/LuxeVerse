@@ -1,6 +1,6 @@
 # LuxeVerse
 
-LuxeVerse is a full-stack content platform built with React, TypeScript, Express, PostgreSQL, Prisma, JWT authentication, RBAC, media uploads, comments, likes, favorites, watch history, admin CRUD, SEO, and security hardening.
+LuxeVerse is a full-stack video platform for discovering, watching and managing films, videos and digital media. It is built with React, TypeScript, Express, PostgreSQL, Prisma, JWT authentication, RBAC, media uploads, comments, likes, favorites, watch history, admin CRUD, SEO, and security hardening.
 
 ## Features
 
@@ -21,6 +21,21 @@ LuxeVerse is a full-stack content platform built with React, TypeScript, Express
 - Responsive UI
 - SEO metadata, sitemap, robots.txt, and structured data
 - Security hardening, rate limiting, CORS, and Helmet
+
+## Product Positioning
+
+LuxeVerse supports legal media such as films, documentaries, educational videos, gaming content, technology videos, music, sports, and entertainment. Upload only developer-owned, royalty-free, public-domain, or properly licensed media.
+
+Suggested fictional demo content:
+
+- The Future of Artificial Intelligence
+- Exploring Modern Game Development
+- A Short Film: The Last Train
+- Inside Modern Web Development
+- Documentary: Life Beneath the Ocean
+- Building a Full-Stack Application
+
+Suggested categories include Movies, Short Films, Documentaries, Gaming, Technology, Entertainment, Education, Sports, and Music. These examples are documentation only; the application does not modify an existing local database automatically.
 
 ## Tech Stack
 
@@ -196,7 +211,7 @@ The application includes:
 - bcrypt password hashing
 - Backend-enforced RBAC and ownership checks
 - Global, authentication, and upload rate limiting
-- Explicit CORS origin allowlisting
+- Allowlisted CORS origins
 - Helmet security headers
 - Zod input validation
 - MIME and size limits for image and video uploads

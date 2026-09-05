@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-export const DEFAULT_DESCRIPTION = 'Discover premium curated content, categories, and videos on LuxeVerse.';
+export const DEFAULT_DESCRIPTION = 'Discover and watch videos, films, documentaries and digital content on LuxeVerse.';
 
 const siteUrl = (import.meta.env.VITE_SITE_URL?.trim() ||
   (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173')).replace(/\/+$/, '');
@@ -33,7 +33,7 @@ type SeoProps = {
 };
 
 export default function Seo({
-  title = 'LuxeVerse | Discover Premium Content',
+  title = 'LuxeVerse | Discover Videos & Films',
   description = DEFAULT_DESCRIPTION,
   canonicalPath,
   image,

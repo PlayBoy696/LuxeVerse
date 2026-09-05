@@ -2,7 +2,7 @@
   "name": "luxeverse-backend",
   "version": "1.0.0",
   "private": true,
-  "description": "LuxeVerse Express API with Prisma, JWT authentication, RBAC, and media uploads",
+  "description": "LuxeVerse general video platform API with Prisma, JWT authentication, RBAC, and media uploads",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",

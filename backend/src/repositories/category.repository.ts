@@ -34,6 +34,14 @@ export const findCategoryByName = (name: string) => {
   });
 };
 
+export const countCategoryContent = (categoryId: string) => {
+  return prisma.content.count({
+    where: {
+      categoryId,
+    },
+  });
+};
+
 export const createCategory = (
   data: Prisma.CategoryCreateInput
 ) => {

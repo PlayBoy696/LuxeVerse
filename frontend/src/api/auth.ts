@@ -11,7 +11,7 @@ export const register = async (input: RegisterInput): Promise<AuthResponse> => {
 };
 
 export const refresh = async (): Promise<AuthResponse> => {
-  // client already implements refresh handling, but expose explicit call if needed
+  // client already implements refresh handling, but keep a direct call available if needed
   return api.post<AuthResponse>('/auth/refresh');
 };
 

@@ -613,7 +613,7 @@ function AdminDashboard() {
             {loadingContents ? (
               <p className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-sm text-slate-400">Loading content…</p>
             ) : contents.length === 0 ? (
-              <p className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-sm text-slate-400">No content found. Create the first release to populate the library.</p>
+              <p className="rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 text-sm text-slate-400">No content found. Add the first video to populate the library.</p>
             ) : (
               <div className="space-y-4">
                 {contents.map((item) => (

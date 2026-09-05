@@ -67,5 +67,14 @@ export const updateCategory = async (
 export const deleteCategory = async (id: string) => {
   await getCategoryById(id);
 
+  const contentCount = await categoryRepository.countCategoryContent(id);
+
+  if (contentCount > 0) {
+    throw new AppError(
+      "Cannot delete category because it is still used by content. Move or delete the related content first.",
+      409
+    );
+  }
+
   return categoryRepository.deleteCategory(id);
 };

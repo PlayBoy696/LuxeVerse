@@ -25,7 +25,7 @@ Cross-site cookie authentication may require:
 - `COOKIE_SAME_SITE=none`
 - HTTPS, which makes the production cookie `secure=true`
 - `credentials: true` in CORS and frontend fetches
-- Explicit frontend origins in `FRONTEND_URL`
+- Configured frontend origins in `FRONTEND_URL`
 - CSRF protection review before production use
 
 Do not use `COOKIE_SAME_SITE=none` for local HTTP development. No cookie domain is configured by default; host-only cookies are the safest default. Add a cookie domain only if the final subdomain architecture specifically requires it.
